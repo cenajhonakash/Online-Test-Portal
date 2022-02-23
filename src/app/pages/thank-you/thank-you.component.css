@@ -1,0 +1,10 @@
+.home{
+    width: 100%;
+	height: 93vh;
+	background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url(../../../assets/thankyou2.jpg);
+	background-size: cover;
+	color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

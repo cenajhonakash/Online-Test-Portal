@@ -1,0 +1,35 @@
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+		$('p')[0].contents().unwrap();
+	});
+</script> -->
+<h2 style="margin-top: 10px;">Question Set || {{title}}</h2>
+<div class="bootstrap-wrapper" style="margin-bottom: 10px;">
+    <div class="row">
+        <div class="col-md-10">
+            <mat-card *ngFor="let q of questions; let i = index" style="margin-top: 10px; margin-left: 15px; margin-right: 15px;">
+                <mat-card-content>
+                        <p style="display: inline;"><b style="color:purple;" >Q {{i+1}})  </b><span [innerHTML] = "q.content"></span></p>
+                    </mat-card-content>
+                        <div class="row">
+                            <div class="col-md-5"><p><b style="color:purple;">1) </b>{{q.option1}}</p></div>
+                            <div class="col-md-5"><p><b style="color:purple;">2) </b>{{q.option2}}</p></div>
+                            <div class="col-md-2"><button mat-flat-button color="primary" (click)="deleteQuestion(q.quesId)">Delete</button></div>
+                        </div>
+                            
+                        <div class="row">
+                            <div class="col-md-5"><p><b style="color:purple;">3) </b>{{q.option3}}</p></div>
+                            <div class="col-md-5"><p ><b style="color:purple;">4) </b>{{q.option4}}</p></div>
+                            <div class="col-md-2"><button mat-raised-button color="accent" style="margin-top: 5px;" [routerLink] ="['/admin/update-question/' + q.quiz.qid +'/'+ title + '/'+q.quesId]">Update</button></div>
+                        </div>
+                           
+                        <mat-divider style="margin-top: 3px;"></mat-divider>
+                        <p style="margin-top: 10px;"><b  style="color:purple;">Correct Answer : </b>{{q.answer}}</p>
+            </mat-card>
+            <div class="container text-center" style="margin-top: 5px;">
+                <button mat-raised-button color="primary" [routerLink] ="['/admin/add-question/' + qid+'/'+ title]" >Add New Question</button>
+            </div>
+        </div>   
+    </div>
+</div>

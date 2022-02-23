@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <div class="home"></div>
+    <div class="bg-text" *ngIf="user.enabled">
+        <h1 *ngIf="admin"><b>ADMIN PORTAL</b></h1>
+        <h1 *ngIf="candidate"><b>CANDIDATE PORTAL</b></h1>
+        <h1>Welcome {{user.firstName}} {{user.lastName}}</h1>     
+        <p *ngIf="admin">Experience a new proctoring technology || Navigate your next</p>
+        <p *ngIf="candidate">Experience a new dimension || Navigate your exam experience</p>
+        <button *ngIf="candidate" type="submit" mat-raised-button color="accent" routerLink="user/">Dashboard</button>
+        <button *ngIf="admin" type="submit" mat-raised-button color="accent" routerLink="admin/">Dashboard</button>
+        <div style="margin-top: 10px;">
+            <mat-card style="color: blueviolet;"><!--gainsboro;-->
+                <mat-card-title >Donate and support us!!</mat-card-title>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>Donate</mat-panel-title>
+                          <mat-panel-description>Keep supporting us the way you are supporting.</mat-panel-description>
+                        </mat-expansion-panel-header>
+                    
+                        <form #amount = "ngForm" (ngSubmit)="pay(amount.value)">
+                            <mat-form-field appearance="fill"><mat-label>Amount in INR.</mat-label>
+                                <input name="money" type="text" matInput ngModel></mat-form-field>
+                                  <br>
+                                <button mat-flat-button color="primary"  style="margin-top: 15px;">Donate</button>      
+                        </form>
+                       </mat-expansion-panel>
+            </mat-card>
+        </div>
+    </div> 
+    <div class="bg-text" *ngIf="!user.enabled">
+        <h1 *ngIf="admin"><b>ADMIN PORTAL</b></h1>
+        <h1 *ngIf="candidate"><b>CANDIDATE PORTAL</b></h1>
+        <h1>Welcome {{user.firstName}} {{user.lastName}}</h1>     
+        <p>Note : Kindly contact help.application_testCHU@outlook.com for your account activation</p>
+    </div>
+      
+    <div class="bg-text" *ngIf="!admin && !candidate" >
+        <h1><b>TEST PORTAL</b></h1>
+        <h1>Welcome Guest</h1> 
+        <h2>Login Page</h2>
+        <p>Note : Kindly contact help.application_testCHU@outlook.com for your account activation post successful registration</p>
+    </div>
+
+</div>

@@ -1,0 +1,39 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <mat-card style="margin-top: 10px;">
+                    <mat-card-header>
+                        <mat-card-title>Read the instructions carefully before procedding to the test.</mat-card-title>
+                        <mat-card-subtitle>Wishing you all the best!!!!!!!!!!!!</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content style="margin-left: 10px;">
+                        <h2>{{quiz.title}}</h2>
+                        <p>{{quiz.about}}</p>
+                        <mat-divider></mat-divider><br/>
+                        <p><b>Important instructions</b></p>
+                        <ul>
+                            <li> The quiz is only for practice purpose</li>
+                            <li> Quiz will be submitted automatically after the alloted time is over.</li>
+                            <li> You cannot go back once the test begins.</li>
+                            <li> You cannot resume quiz once the test is interrupted in between.</li>
+                            <li> Once completed click on <b>Submit</b> button.</li>
+                        </ul>
+                        <mat-divider></mat-divider><br/>
+                        <p><b>Total Marks : {{quiz.max_marks}} || Total Questions : {{quesSize}}</b></p>
+                        <ul>
+                            <li>Each questions carry <b>{{quiz.max_marks/quesSize}} marks</b></li>
+                            <li>Quiz can be taken any number of times.</li>
+                            <li>There is <b>no negative</b> marking.</li>
+                            <li>All Questions are of MCQ type.</li>
+                            <li>Once sumitted the result will be generated in <b>pdf</b>.</li>
+                        </ul>
+                    </mat-card-content>
+                    <mat-card-actions  class="text-center">
+                        <button (click)="startTest()" mat-raised-button color="primary">Start</button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

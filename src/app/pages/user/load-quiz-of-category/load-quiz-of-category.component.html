@@ -1,0 +1,53 @@
+<div *ngIf="!userRoleADMIN"class="bootsrap-wrapper">
+    <div  *ngIf="quizzes?.length == 0"><h1><b>No Quiz available for {{title}}</b></h1></div>
+    
+    <div class="container-fluid" *ngIf="quizzes?.length > 0">
+        <h2 style="margin-top: 5px;">Quiz Set || {{title}}</h2>
+        <div class="row" >
+            <div class="container">
+                <mat-slide-toggle color="primary" (change)="onChange()" name="active" class="example-margin" style="margin-bottom: 5px;">Active Quiz</mat-slide-toggle>                       
+            </div>
+            <div class="col-md-4" *ngFor="let q of quizzes">
+                <mat-card style="margin-bottom:5px;">
+                    <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>                   
+                            <mat-card-title style="margin-top: 5px; font-size: medium;"><b>{{(q.title | slice:0:25)}}</b></mat-card-title>
+                            <mat-card-subtitle>
+                                <mat-card-content><p class="truncate" style="font-size: small;">{{(q.about | slice:0:35)+'..'}}</p></mat-card-content>
+                           </mat-card-subtitle>                    
+                    </mat-card-header>
+                   
+                      <!-- <mat-icon mat-list-icon style="margin-left: 10px;">quiz</mat-icon>--> 
+                   
+                    <mat-card-actions>
+                        <button [disabled]= "!q.active" [routerLink]="['/user/instructions/'+q.qid]"mat-raised-button color="accent">Start</button>
+                        <button [disabled]= "!q.active" mat-stroked-button color="primary">Q : {{q.no_of_questions}}</button>         
+                        <button [disabled]= "!q.active" mat-stroked-button color="primary" style="margin-top: 5px; margin-right: 10px;">Marks : {{q.max_marks}}</button>
+                    </mat-card-actions> 
+                        
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="userRoleADMIN">
+    <mat-card  *ngFor="let q of quizzes" style="margin-top: 20px; margin-left: 30px; margin-right: 30px;">
+        <mat-card-header>
+            <div mat-card-avatar><mat-icon>analytics</mat-icon></div>       
+            <mat-card-title>{{q.title}}</mat-card-title>
+            <mat-card-subtitle>{{q.category.title}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content><p>{{q.about}}</p></mat-card-content>
+       <!--<mat-card-action> -->
+            <button mat-raised-button [routerLink] ="['/admin/viewQuestions/' + q.qid +'/'+ q.title]" color="primary">Questions</button>
+            <button mat-flat-button [routerLink] ="['/admin/quiz/',q.qid]" color="accent" style="margin-left: 20px;">Update</button>
+            <button mat-stroked-button color="primary" style="margin-left: 20px;">Max Marks : {{q.max_marks}}</button>
+            <button mat-stroked-button color="primary" style="margin-left: 20px;">Total Questions : {{q.no_of_questions}}</button>
+            <button mat-stroked-button color="primary" style="margin-left: 20px;">Status : {{q.active?'Active':'Inactive'}}</button>
+            <button mat-flat-button color="warn" style="margin-left: 20px;" (click)="deleteQuiz(q.qid)">Delete</button>
+             <!--</mat-card-action>-->
+    </mat-card>
+        <div *ngIf="userRoleADMIN" class="container text-center" style="margin-top: 10px; margin-bottom: 20px;">
+            <button routerLink="/admin/add-quiz" mat-raised-button color="primary">Add New Quiz</button>
+        </div>
+</div>

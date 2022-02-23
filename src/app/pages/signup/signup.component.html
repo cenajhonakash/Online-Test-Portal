@@ -1,0 +1,80 @@
+<div class="bootstrap-wrapper">
+    <div class="container">    
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="container text-center">
+                    <img src="../../../assets/register.jpg" alt="" style="width: 35%; height: auto; margin-top: 10px;">
+                    <h1 class="text-center">Register Here!!</h1>
+                   <!--  {{user | json}} -->
+                    <form #sign="ngForm" (ngSubmit)= "formSubmit(sign.value)">
+                      <div class="row">
+                        <mat-form-field appearance="outline" class="full-width">
+                          <mat-label>Username</mat-label>
+                          <input name="userName" type="text" matInput ngModel type="text" placeholder="Enter username here">
+                         <!-- <input [(ngModel)] = "user.userName" name="userName" matInput placeholder="Enter username here">
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>-->
+                         <mat-hint>Username must be unique</mat-hint>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="full-width">
+                          <mat-label>Password</mat-label>
+                          <input name="password" type="password" matInput ngModel type="password" min="4" placeholder="Enter password">
+                          <!-- <input [(ngModel)] = "user.password" type="password"  name="password" matInput placeholder="Enter password">
+                       <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>-->
+                         <!-- <mat-hint>Hint</mat-hint>-->
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="full-width">
+                          <mat-label>First Name</mat-label>
+                          <input name="firstName" type="firstName" matInput ngModel type="text" min="4" placeholder="Enter firstName">
+                         <!--  <input [(ngModel)] = "user.firstName"  name="firstName" matInput placeholder="Enter first name">
+                       <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>-->
+                         <!-- <mat-hint>Hint</mat-hint>-->
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="full-width">
+                          <mat-label>Last Name</mat-label>
+                          <input name="lastName" type="lastName" matInput ngModel type="text" min="1" placeholder="Enter lastName">
+                         <!--  <input [(ngModel)] = "user.lastName"  name="lastName" matInput placeholder="Enter last name">
+                       <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>-->
+                         <!-- <mat-hint>Hint</mat-hint>-->
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="full-width">
+                          <mat-label>Email</mat-label>
+                          <input name="email" type="email" matInput ngModel type="text" min="4" placeholder="Enter email">
+                         <!-- <input [(ngModel)] = "user.email"  name="email" matInput placeholder="Enter email">
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>-->
+                         <!-- <mat-hint>Hint</mat-hint>-->
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="full-width">
+                          <mat-label>Phone number</mat-label>
+                          <input name="phone" type="phone" matInput ngModel type="text" min="4" placeholder="Enter phone">
+                        <!--   <input [(ngModel)] = "user.phone"  name="phone" type="number" matInput placeholder="Enter contact here">
+                       <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>-->
+                         <!-- <mat-hint>Hint</mat-hint>-->
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="full-width">
+                          <mat-label>Description</mat-label>
+                          <input name="about" type="about" matInput ngModel type="text" min="4" placeholder="Enter about">
+                          <!-- <input [(ngModel)] = "user.about"  name="about" type="text" matInput placeholder="About">
+                       <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>-->
+                         <!-- <mat-hint>Hint</mat-hint>-->
+                        </mat-form-field>
+                      </div>
+                      <div class="row">
+                          <label for="file"></label>
+                          <input ngModel type="file" name="imageURL" accept="image/*" (change)="chooseFile($event)" style="height: 100%;"/>
+                      </div>
+                      <div class="container text-center" style="margin-top: 10px;">
+                        <button type="submit" mat-raised-button color="primary">Register</button>
+                        <button style="margin-left: 20px;" type="reset" mat-raised-button color="accent">Reset</button>
+                      </div>
+                    </form>
+                </div>             
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<!--<div class="example-action-buttons">
+  <button mat-button (click)="accordion.openAll()">Expand All</button>
+  <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+</div>-->
+<mat-card style="margin-top: 15px;">
+  <form #user = "ngForm" (ngSubmit)="formSubmit(user.value)">
+  <mat-accordion class="example-headers-align" multi>
+    <!--email-->
+    <mat-expansion-panel *ngIf="!passEnabled">
+      <mat-expansion-panel-header>
+        <mat-panel-title>Email</mat-panel-title>
+        <mat-panel-description>{{email}}<mat-icon>email</mat-icon></mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <mat-form-field appearance="fill"><mat-label>Email here</mat-label>
+        <input name="email" type="text" matInput ngModel></mat-form-field>
+    </mat-expansion-panel>
+    
+    <!--name-->
+    <mat-expansion-panel *ngIf="!passEnabled">
+      <mat-expansion-panel-header>
+        <mat-panel-title>Username</mat-panel-title>
+        <mat-panel-description>{{uname}}<mat-icon>account_circle</mat-icon></mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <mat-form-field appearance="fill"><mat-label>Username here</mat-label>
+        <input name="userName" type="text" matInput ngModel></mat-form-field>
+    </mat-expansion-panel>
+    <!--Contact Number-->
+    <mat-expansion-panel *ngIf="!passEnabled">
+      <mat-expansion-panel-header>
+        <mat-panel-title>Contact Number</mat-panel-title>
+        <mat-panel-description>{{phone}}<mat-icon>call</mat-icon></mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <mat-form-field appearance="fill"><mat-label>Phone number here</mat-label>
+        <input name="phone" type="text" matInput ngModel type="text" min="1"></mat-form-field>
+    </mat-expansion-panel>
+    <!--Description-->
+    <mat-expansion-panel *ngIf="!passEnabled">
+      <mat-expansion-panel-header>
+        <mat-panel-title>About</mat-panel-title>
+        <mat-panel-description>{{about}}<mat-icon>info</mat-icon></mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <mat-form-field appearance="fill"><mat-label>Some glimpse about you.</mat-label>
+        <input name="about" type="text" matInput ngModel min="1"></mat-form-field>
+    </mat-expansion-panel>
+    <!--Password-->
+    <mat-expansion-panel *ngIf="passEnabled"><mat-expansion-panel-header>
+        <mat-panel-title> Password</mat-panel-title>
+        <mat-panel-description>Please use a strong combination of letter, numerics, special characters.<mat-icon>password</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+  
+      <mat-form-field appearance="fill"><mat-label>Old password here</mat-label>
+        <input required name="old_pass" matInput ngModel type="password">
+      </mat-form-field>
+    <br>
+      <mat-form-field appearance="fill"><mat-label>New password here</mat-label>
+        <input required name="new_pass" matInput ngModel type="password">
+      </mat-form-field>
+    <br>
+      <mat-form-field appearance="fill"><mat-label>Re-enter new password here</mat-label>
+        <input required name="re_entered" matInput ngModel type="password">
+      </mat-form-field>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <div class="container text-center">
+    <button *ngIf="!passEnabled" mat-flat-button color="primary"  style="margin-top: 15px;">Update</button>
+    <button *ngIf="passEnabled" mat-flat-button color="primary"  style="margin-top: 15px;">Update</button>
+    <button type="reset" mat-flat-button color="accent"  style="margin-top: 15px;" style="margin-left: 8px;">Reset</button>
+</div>
+</form>
+</mat-card>

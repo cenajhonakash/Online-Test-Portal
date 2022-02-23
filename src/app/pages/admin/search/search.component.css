@@ -1,0 +1,33 @@
+th { 
+	background: #333; 
+	color: white; 
+	font-weight: bold; 
+	text-align: center;
+  }
+  td, th { 
+	padding: 6px; 
+	border: 1px solid #ccc; 
+	text-align: center; 
+  }
+  /* Structure */
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-row{        
+  position: relative;
+}
+
+.mat-row-link{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  text-align: center;             
+}
