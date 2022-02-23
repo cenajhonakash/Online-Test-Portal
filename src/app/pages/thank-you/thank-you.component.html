@@ -1,0 +1,47 @@
+
+        <!--Failure-->
+        <div class="container home" *ngIf="status  == 0">
+            <div class="row" style="margin-top: 15px;">
+                <mat-card-header>           
+                    <mat-card-title>  Oops!!...payment for {{amount}} INR failed.</mat-card-title>
+                    <mat-card-subtitle style="color: yellowgreen;">don't worry keep your love constant for us.</mat-card-subtitle>
+                   </mat-card-header>
+                </div>
+                <mat-card-content>
+                    <p>
+                        We are thrilled to have your support. <br>
+                        Through your donation we have been able to accomplish our goals and continue working towards purpose of our cutsomer experience. <br>
+                        You truly make the difference for us, and we are extremely grateful!!!
+                    </p>
+                  </mat-card-content>
+                  
+            <div> 
+                <mat-card-actions>
+                    <button mat-raised-button routerLink="/" color="primary" style="margin-top: 15px;">Home</button>
+                    <button mat-raised-button color="accent" style="margin-left: 15px;">Logout</button>
+                </mat-card-actions>
+            </div>
+            </div>
+        <!--Thankyouu-->
+    <div class="container home" *ngIf="status  == 1 ">
+    <div class="row" *ngIf="status  == 1" style="margin-top: 15px;">
+        <mat-card-header><!-- <div mat-card-avatar class="example-header-image"></div> -->           
+            <mat-card-title>  Thank you very much for your support of {{amount}} INR.</mat-card-title>
+            <mat-card-subtitle style="color: yellowgreen;">Keep showing us your love.</mat-card-subtitle>
+            <!-- <img mat-card-image src="../../../assets/thankyou2.jpg" alt="Thank You">-->
+        </mat-card-header>
+    </div>
+    <div>
+        <mat-card-content>
+            <p>
+                We are thrilled to have your support. <br>
+                Through your donation we have been able to accomplish our goals and continue working towards purpose of our cutsomer experience. You truly make the difference for us, and we are extremely grateful!!!
+            </p>
+          </mat-card-content>
+    </div>
+    <div> 
+        <mat-card-actions>
+            <button mat-raised-button routerLink="/" color="primary" style="margin-top: 15px;">Home</button>
+            <button mat-raised-button color="accent" style="margin-left: 15px;">Logout</button>
+        </mat-card-actions>
+    </div>

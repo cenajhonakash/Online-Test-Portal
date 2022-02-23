@@ -1,0 +1,35 @@
+<mat-card style="margin-top: 20px; margin-left: 30px; margin-right: 30px; margin-bottom: 20px;">
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="container col-md-10">
+                <div class="container text-center"><!--src="https://i.stack.imgur.com/l60Hf.png" '{{ "D:/JavaProjects_Eclipse/STSprojects/ExamServer/ExamServer/target/classes/static/Uploaded_IMG/" + user.imageURL}}'-->
+                    <img *ngIf="user" class="profilephoto" src="{{user.imageURL}}"  alt=""/>
+                    <h1 *ngIf="user" style="margin-top: 15px;">{{user.firstName}} {{user.lastName}}</h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                        <!--Table details-->
+                        <table *ngIf="user"class="profileDetailsTable">
+                            <tr><td style="background: #333; color: white;"><b>#Username</b></td><td>{{user.userName}}</td></tr>
+                            <tr><td style="background: #333; color: white;"><b>#ID</b></td><td>{{user.userID}}</td></tr>
+                            <tr><td style="background: #333; color: white;"><b>#Role</b></td><td>{{user.authorities[0].authority}}</td></tr>
+                            <tr><td style="background: #333; color: white;"><b>#Status</b></td><td>{{user.enabled?"ACTIVE":"INACTIVE"}}</td></tr>
+                            <tr><td style="background: #333; color: white;"><b>#Email</b></td><td>{{user.email}}</td></tr>
+                            <tr><td style="background: #333; color: white;"><b>#First Name</b></td><td>{{user.firstName}}</td></tr>
+                            <tr><td style="background: #333; color: white;"><b>#Last Name</b></td><td>{{user.lastName}}</td></tr>
+                            <tr><td style="background: #333; color: white;"><b>#Phone</b></td><td>{{user.phone}}</td></tr>
+                            <tr><td style="background: #333; color: white;"><b>#About</b></td><td>{{user.about}}</td></tr>
+                        <br>
+                        <p><b>Note : </b> To update details go to settings.</p></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card-content><!--
+    <mat-card-actions class="text-center">
+        <button *ngIf="user.authorities[0].authority=='NORMAL'" [routerLink] ="['/user/update-profile/' ]" mat-raised-button color="primary">Update</button>
+        <button *ngIf="user.authorities[0].authority=='NORMAL'" [routerLink] ="['/user/update-profile/' ]" mat-raised-button color="accent">Share</button>
+        <button *ngIf="user.authorities[0].authority=='ADMIN'" [routerLink] ="['/admin/update-profile/' ]" mat-raised-button color="accent">Share</button>
+        <button *ngIf="user.authorities[0].authority=='ADMIN'" [routerLink] ="['/admin/update-profile/' ]" mat-raised-button color="primary">Update</button></mat-card-actions>
+    --> 
+    </mat-card>

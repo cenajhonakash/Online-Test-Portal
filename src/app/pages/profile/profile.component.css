@@ -1,0 +1,27 @@
+.profilephoto{
+    
+  width: 150px;
+	height: 150px;
+	object-fit:cover;
+	border-radius:100%;
+	border: 1px solid black; 
+
+}
+.profileDetailsTable{
+    width: 100%;
+    border-collapse: collapse;
+	overflow-x:auto;
+}
+
+th { 
+	background: #333; 
+	color: white; 
+	font-weight: bold; 
+	text-align: center;
+  }
+  td, th { 
+	padding: 6px; 
+	border: 1px solid #ccc; 
+	text-align: center; 
+  }
+

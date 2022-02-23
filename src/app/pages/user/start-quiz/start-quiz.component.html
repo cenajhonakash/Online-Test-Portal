@@ -1,0 +1,74 @@
+<div class="bootstrap-wrapper" *ngIf="!submitted">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">  <!--Instructions-->
+                <mat-card  class="scrollable">
+                    <h2>Instructions</h2>
+                    <ul style="color: darkgreen;">
+                        <li>Please don't navigate the window while taking test.</li>
+                        <li>Test can't be resumed once haulted.</li>
+                        <li>Don't submit the test if not completed.</li>
+                        <li>Test will be submitted automatically once time is up.</li>
+                    </ul>
+                </mat-card>
+            </div>
+            <div class="col-md-8">
+                 <!--Questions-->
+                 <ng-container *ngIf="quetions">
+                     <h1 style="margin-top: 10px;"> Ongoing Quiz || {{quetions[0].quiz.title}}</h1>
+                    <mat-card *ngFor="let q of quetions; let i = index;" style="margin-bottom: 5px;">
+                        <mat-card-content><p><b>{{i+1}}) </b><span [innerHTML]="q.content"></span></p></mat-card-content>
+                        <div class="row">
+                            <div class="col-md-6"><input [name]="i.toString()"  type="radio" [value]="q.option1" [(ngModel)]="q.givenAnswer"/>{{q.option1}}</div>
+                            <div class="col-md-6"><input [name]="i.toString()"  type="radio" [value]="q.option2" [(ngModel)]="q.givenAnswer"/>{{q.option2}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6"><input [name]="i.toString()"  type="radio" [value]="q.option3" [(ngModel)]="q.givenAnswer"/>{{q.option3}}</div>
+                            <div class="col-md-6"><input [name]="i.toString()"  type="radio" [value]="q.option4" [(ngModel)]="q.givenAnswer"/>{{q.option4}}</div>
+                        </div>
+                    </mat-card>
+                    <div class="container text-center">
+                        <button mat-raised-button color="primary" (click)="sumbitQuiz()">Submit</button>
+                    </div>
+                 </ng-container>
+            </div>
+            <div class="col-md-2">
+                 <!--Progress-->
+                 <mat-card class="scrollable">
+                    <mat-card-header><mat-card-title>Progress</mat-card-title><mat-card-subtitle>Quiz will be automatically submitted when time is up.</mat-card-subtitle></mat-card-header>
+                    <h1 class="text-center">{{formatTimer()}}</h1>
+                    <mat-spinner style="margin: auto;" mode="determinate" 
+                    [value]="(test_timer/(quetions.length * 1 * 60))*100"></mat-spinner>
+                 </mat-card>
+                 </div>
+        </div>
+    </div>
+</div>
+<div class="bootstrap-wrapper" *ngIf="submitted">
+    <div class="row" style="margin-top: 25px;">
+        <div class="col-md-6 offset-md-3">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>
+                        Your Scorecard || {{quetions[0].quiz.title}}
+                    </mat-card-title>
+                    <mat-card-subtitle>
+                        <p *ngIf="quiz_maxMarks/2>score">Don't worry and prepare well and take the quiz again.</p>
+                        <p *ngIf="quiz_maxMarks == score"><b>Hurray!!!!!!....You nailed it.</b></p>
+                    </mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content class="text-center">
+                    <h1>Score    : {{score}}/{{quiz_maxMarks}}</h1>
+                    <h1>Attempted : {{attempted}}/{{totalQues}}</h1>
+                    <h1>Correct   : {{correctAnswer}}</h1>
+                </mat-card-content>
+                <mat-card-actions>
+                    <div class="container text-center">
+                        <button mat-raised-button color="primary">Print</button>
+                        <button mat-raised-button [routerLink]="['/user/']" color="primary">Home</button>    
+                    </div>
+                    </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="bootsrap-wrapper scrollable">
+  <div class="container-fluid">
+    <div class="row" style="margin-top: 5px;">
+      <mat-card style="margin-top: 5px;" class="scrollable">
+    <mat-action-list>
+        <div mat-subheader>Menu</div>
+        <div class="row">
+        <button mat-list-item routerLink="/user"><mat-icon mat-list-icon>home</mat-icon>Home</button>
+        <button mat-list-item routerLink="/user/profile"><mat-icon mat-list-icon>account_circle</mat-icon>Profile</button>
+        
+        <button mat-list-item routerLink="/user/search"><mat-icon mat-list-icon>search</mat-icon>Search</button>
+        <button mat-list-item [matMenuTriggerFor]="Test"><mat-icon>more_vert</mat-icon>Options</button>
+        <!--Mat menu button inclusion-->
+        <mat-menu #Test="matMenu">
+          <button mat-menu-item [matMenuTriggerFor]="qu"><mat-icon mat-list-icon>quiz</mat-icon>Quiz</button>
+          <button mat-menu-item [routerLink]="['/user/fetchPayment_details/' + user.userID]"><mat-icon mat-list-icon>payments</mat-icon>Payment Details</button>
+        </mat-menu>
+        
+        <mat-menu #qu="matMenu">
+            <button mat-menu-item [matMenuTriggerFor]="viewQuiz"><mat-icon mat-list-icon>expand_more</mat-icon>View Quiz of Set</button>
+        </mat-menu>
+        
+        <mat-menu #viewQuiz="matMenu">
+          <button *ngFor="let c of category" (click)="loadQuizOfSet(c.title, c.cid)" mat-menu-item>{{c.title}}</button>
+        </mat-menu>
+        
+        <button mat-list-item [matMenuTriggerFor]="settings"><mat-icon mat-list-icon>settings</mat-icon>Settings</button>
+        <mat-menu #settings="matMenu">
+          <button mat-menu-item [routerLink]="['/user/update-profile/']+ user.userID">Update Details</button>
+          <button mat-menu-item (click)="passwordChange(user.userID)">Change Password</button>
+        </mat-menu>
+        <!--End of Mat Menu update-profile/:userID-->
+         <button mat-list-item (click)="logoutCandidate()"><mat-icon mat-list-icon>logout</mat-icon>Logout</button>
+        </div>
+    </mat-action-list>
+  </mat-card>
+    </div></div></div>

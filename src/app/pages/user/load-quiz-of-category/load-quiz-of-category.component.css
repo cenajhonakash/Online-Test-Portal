@@ -1,0 +1,12 @@
+.truncate{
+    display: block;
+    white-space: nowrap;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: small;
+}
+.example-header-image{
+    background-image: url("../../../../assets/test.png");
+    background-size: cover;
+}
